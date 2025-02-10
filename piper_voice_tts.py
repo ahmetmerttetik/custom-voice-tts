@@ -47,15 +47,15 @@ class VoiceAssistant(PiperVoice):
 
 
 voice = VoiceAssistant.load(
-    model_path="/home/mert/Desktop/piper/model_6602.onnx",
-    config_path="/home/mert/Desktop/piper/model_6602.onnx.json"
+    model_path="/home/.../Desktop/piper/model_6602.onnx",
+    config_path="/home/.../Desktop/piper/model_6602.onnx.json"
 )
 
 
 synthesize_arguman = voice.synthesize_args(1, 0.667, 0.8, 0.66)
 
 
-text = """Merhaba, ben Ahmet Mert TETİK."""
+text = Path("/home/.../Desktop/piper/deneme.txt").read_text()
 
 a = voice.save(text, synthesize_arguman)
 
