@@ -3,61 +3,54 @@ import wave
 from pathlib import Path
 from pygame import mixer
 from datetime import datetime
+from pathlib import Path
 
-class VoiceAssistant(PiperVoice):
-    def __init__(self, model_path: str, config_path: str):
-        super().__init__(model_path, config_path)
-
-    @classmethod
-    def load(cls, model_path: str, config_path: str):
-        return cls(model_path, config_path)
-
+class VoiceAssistant:
+    def __init__(self, model_path, config_path):
+        self.piper = PiperVoice.load(model_path, config_path)
+    
     @staticmethod
-    def create_unique():
+    def get_timestamp():
         return datetime.now().strftime("%d%m%Y%H%M%S")
-
-    def synthesize_args(self, length_scale=1, noise_scale=0.667, noise_w=0.8, sentence_silence=0.66):
-        
-        if isinstance(length_scale, dict):  
-            return length_scale
-        else:  
-            return {
-                "length_scale": length_scale,
-                "noise_scale": noise_scale,
-                "noise_w": noise_w,
-                "sentence_silence": sentence_silence
-            }
-
+    
+    def synthesize_args(self, length_scale=1.0, noise_scale=0.667, noise_w=0.8, sentence_silence=0.66):
+        return {
+            "length_scale": length_scale,
+            "noise_scale": noise_scale,
+            "noise_w": noise_w,
+            "sentence_silence": sentence_silence
+        }
+    
     @staticmethod
     def play_sound(wav_path):
         mixer.init()
-        mixer.music.load(str(wav_path))
+        mixer.music.load(wav_path)
         mixer.music.play()
-
-    def save(self, txt_file, synthesize_args, output_dir="."):
-        file_name = self.create_unique()
+    
+    def save(self, text, synthesize_args, output_dir="."):
         output_dir = Path(output_dir)
-        wav_path = output_dir / f"{file_name}.wav"
-
+        wav_path = output_dir / f"{self.get_timestamp()}.wav"
+        
         with wave.open(str(wav_path), "wb") as wav_file:
-            self.synthesize(txt_file, wav_file, **synthesize_args)
-
+            self.piper.synthesize(text, wav_file, **synthesize_args)
+        
         return wav_path
 
+def main():
 
+    model_path="model_6602.onnx"
+    config_path="model_6602.onnx.json"
 
-voice = VoiceAssistant.load(
-    model_path="/home/.../Desktop/piper/model_6602.onnx",
-    config_path="/home/.../Desktop/piper/model_6602.onnx.json"
-)
+    voice = VoiceAssistant(model_path,config_path)
+    
+    synth_args = voice.synthesize_args()
+    
+    
+    text = Path("deneme.txt").read_text()
+    
+    
+    wav_path = voice.save(text, synth_args)
+    voice.play_sound(wav_path)
 
-
-synthesize_arguman = voice.synthesize_args(1, 0.667, 0.8, 0.66)
-
-
-text = Path("/home/.../Desktop/piper/deneme.txt").read_text()
-
-a = voice.save(text, synthesize_arguman)
-
-
-VoiceAssistant.play_sound(a)
+if __name__ == "__main__":
+    main()
