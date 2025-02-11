@@ -34,20 +34,24 @@ Bu proje, eğitilen ses modelini kullanarak yazılı metinleri sese dönüştür
 ## Örnek Kullanım
 
 ```python
-from pathlib import Path
+def main():
 
-voice = VoiceAssistant.load(
-    model_path="/home/.../model.onnx",
-    config_path="/home/.../model.onnx.json"
-)
+    model_path="model_6602.onnx"
+    config_path="model_6602.onnx.json"
 
-synthesize_arguman = voice.synthesize_args(1, 0.667, 0.8, 0.66)
+    voice = VoiceAssistant(model_path,config_path)
+    
+    synth_args = voice.synthesize_args()
+    
+    
+    text = Path("deneme.txt").read_text()
+    
+    
+    wav_path = voice.save(text, synth_args)
+    voice.play_sound(wav_path)
 
-text = Path("/home/.../deneme.txt").read_text()
-
-wav_path = voice.save(text, synthesize_arguman)
-
-VoiceAssistant.play_sound(wav_path)
+if __name__ == "__main__":
+    main()
 ```
 
 ---
