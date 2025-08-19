@@ -1,12 +1,12 @@
-# 🎙Voice Assistant - Eğitilen Ses Modelini Sese Dönüştürür  
+# Voice Assistant - Metni Sese Dönüştürür  
 
-Bu proje, eğitilen ses modelini kullanarak yazılı metinleri sese dönüştüren  bir sesli asistan oluşturur. Bu tts modeli i .Metni doğal bir sesle seslendirir, bir `.wav` dosyası olarak kaydeder ve çalar.
+Bu proje, eğitilen ses modelini kullanarak yazılı metinleri sese dönüştüren  bir sesli asistan modülüdür.
 
 ---
 
-## 🚀 Nasıl Kullanılır?
+## Modelin Kullanımı
 
-1. **Modeli yükle:** Piper TTS model ve ayar dosyalarını tanımlayın.
+1. **Modelin yüklenmesi:** Piper TTS model ve ayar dosyalarını tanımlayın.
 2. **Metni yükleyin:** Seslendirmek istediğiniz metni girin.
 3. **Kaydedin:** Ses dosyasını `.wav` formatında oluşturun.
 
@@ -64,5 +64,5 @@ piper-tts==0.1.0
 pygame==2.5.0
 ```
 
-Proje Python 3.9 sürümüm 3.10.12
+Python sürümüm 3.10.12
 
