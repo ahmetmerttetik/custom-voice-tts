@@ -4,28 +4,24 @@ Bu proje, eğitilen ses modelini kullanarak yazılı metinleri sese dönüştür
 
 ---
 
-## Modelin Kullanımı
-
-1. **Modelin yüklenmesi:** Piper TTS model ve ayar dosyalarını tanımlayın.
-2. **Metni yükleyin:** Seslendirmek istediğiniz metni girin.
-3. **Kaydedin:** Ses dosyasını `.wav` formatında oluşturun.
+Bu proje Ubuntu'da ve diğer dağıtımlarda için yapıldı.  
 
 ---
 
 ## 🛠️ Kurulum
 
-1. **Kodları indirin:**
+1.
    ```bash
    git clone https://github.com/ahmetmerttetik/custom-voice-tts.git
    cd custom-voice-tts
    ```
 
-2. **Bağımlılıkları yükleyin:**
+2.
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Model dosyalarını ayarlayın:**
+3.
    - **`model_path`** ve **`config_path`** yollarını Piper TTS dosyalarınıza göre düzenleyin.
    - Okunacak metni bir `.txt` dosyasına veya string bir değere yazın.
 
