@@ -1,6 +1,10 @@
 # Voice Assistant - Metni Sese Dönüştürür  
 
-Bu proje, eğitilen ses modelini kullanarak yazılı metinleri sese dönüştüren  bir sesli asistan modülüdür.
+Bu proje, Piper ses modeli tarafından önceden eğitilmiş eğitim dosyalarının çalıştırılmasını sağlar. 
+Projenin temel amacı, verilen metni sese dönüştürmek ve bu yapının farklı projelere kolay bir şekilde entegre edilebilmesini sağlamaktır. 
+Sistem, offline ve hızlı bir şekilde çalışır. 
+Kullanıcı isterse kendi sesini Piper ses modeli ile eğitip kişisel bir asistan oluşturabilir.
+
 
 ---
 
