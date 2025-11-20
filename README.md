@@ -8,7 +8,7 @@ Kullanıcı isterse kendi sesini Piper ses modeli ile eğitip kişisel bir asist
 
 ---
 
-Bu proje Ubuntu'da ve diğer dağıtımlarda için yapıldı.  
+Bu proje GNU/Linux'da çalışıyor.  
 
 ---
 
