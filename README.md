@@ -27,13 +27,15 @@ Bu proje Ubuntu'da ve diğer dağıtımlarda için yapıldı.
 
 3.
    - **`model_path`** ve **`config_path`** yollarını Piper TTS dosyalarınıza göre düzenleyin.
-   - Okunacak metni bir `.txt` dosyasına veya string bir değere yazın.
+   - Okunacak metni bir `.txt` dosyasına yazın veya string bir değere atayın.
 
 ---
 
 ## Örnek Kullanım
 
 ```python
+from voiceAssistant import VoiceAssistant
+
 def main():
 
     model_path="model_6602.onnx"
@@ -44,7 +46,8 @@ def main():
     synth_args = voice.synthesize_args()
     
     
-    text = Path("deneme.txt").read_text()
+    text = Path("deneme.txt").read_text() # veya text = "Merhaba dünya"
+    
     
     
     wav_path = voice.save(text, synth_args)
