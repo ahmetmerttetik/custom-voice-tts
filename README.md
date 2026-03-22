@@ -5,11 +5,6 @@ Projenin temel amacı, verilen metni sese dönüştürmek ve bu yapının farkl�
 Sistem, offline ve hızlı bir şekilde çalışır. 
 Kullanıcı isterse kendi sesini Piper ses modeli ile eğitip kişisel bir asistan oluşturabilir.
 
-
----
-
-Bu proje GNU/Linux'da çalışıyor.  
-
 ---
 
 ## 🛠️ Kurulum
@@ -22,10 +17,19 @@ Bu proje GNU/Linux'da çalışıyor.
 
 2.
    ```bash
+   python -m venv venv
+   ```
+
+  ```bash
+   source venv/bin/activate
+   ```
+   
+   
+   ```bash
    pip install -r requirements.txt
    ```
 
-3.
+4.
    - **`model_path`** ve **`config_path`** yollarını Piper TTS dosyalarınıza göre düzenleyin.
    - Okunacak metni bir `.txt` dosyasına yazın veya string bir değere atayın.
 
@@ -35,6 +39,7 @@ Bu proje GNU/Linux'da çalışıyor.
 
 ```python
 from voiceAssistant import VoiceAssistant
+from pathlib import Path
 
 def main():
 
@@ -48,8 +53,6 @@ def main():
     
     text = Path("deneme.txt").read_text() # veya text = "Merhaba dünya"
     
-    
-    
     wav_path = voice.save(text, synth_args)
     voice.play_sound(wav_path)
 
@@ -58,14 +61,3 @@ if __name__ == "__main__":
 ```
 
 ---
-
-## 📂 Gereksinimler
-
-`requirements.txt` içeriği:
-```plaintext
-piper-tts==0.1.0
-pygame==2.5.0
-```
-
-Python sürümüm 3.10.12
-
