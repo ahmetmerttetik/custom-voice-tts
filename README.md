@@ -20,11 +20,10 @@ Kullanıcı isterse kendi sesini Piper ses modeli ile eğitip kişisel bir asist
    python -m venv venv
    ```
 3.
-  ```bash
+   ```bash
    source venv/bin/activate
    ```
-   
- 4.  
+4.
    ```bash
    pip install -r requirements.txt
    ```
