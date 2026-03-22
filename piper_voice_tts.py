@@ -3,7 +3,6 @@ import wave
 from pathlib import Path
 from pygame import mixer
 from datetime import datetime
-from pathlib import Path
 
 class VoiceAssistant:
     def __init__(self, model_path, config_path):
