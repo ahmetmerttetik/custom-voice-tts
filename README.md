@@ -19,17 +19,17 @@ Kullanıcı isterse kendi sesini Piper ses modeli ile eğitip kişisel bir asist
    ```bash
    python -m venv venv
    ```
-
+3.
   ```bash
    source venv/bin/activate
    ```
    
-   
+ 4.  
    ```bash
    pip install -r requirements.txt
    ```
 
-4.
+5.
    - **`model_path`** ve **`config_path`** yollarını Piper TTS dosyalarınıza göre düzenleyin.
    - Okunacak metni bir `.txt` dosyasına yazın veya string bir değere atayın.
 
